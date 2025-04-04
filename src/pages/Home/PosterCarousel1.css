@@ -1,0 +1,127 @@
+/* Background overlay */
+.popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8); /* Dark background */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+  }
+  
+  /* Popup content: Same width & height as the image */
+  .popup-content {
+    width: 50%;
+    max-width: 1000px;
+    height: auto;
+    position: relative;
+  }
+  
+  /* Close button positioned over the image */
+  .close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: rgba(0, 0, 0, 0.6); /* Semi-transparent background */
+    border: none;
+    font-size: 8px;
+    cursor: pointer;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    z-index: 1100; /* Ensure it is above the image */
+  }
+  
+  /* Image styling: Ensuring same width & height as the popup */
+  .poster-image1 {
+    width: 100%;
+    height: 100%; /* Match popup height */
+    border-radius: 10px;
+    object-fit: cover; /* Ensures image fits without distortion */
+  }
+  
+  /* Explore More Button */
+  .explore-btn {
+    position: absolute;
+    bottom: 35px;
+    left: 35px;
+    background-color: #007bff; /* Blue color */
+    color: white;
+    border: none;
+    font-size: 16px;
+    padding: 5px 10px;
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  
+  .explore-btn:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+  }
+  
+  /* Custom Dots Container */
+  .custom-dots {
+    position: absolute;
+    bottom: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+    z-index: 1100; /* Ensure it stays above images */
+  }
+  
+  /* Dot Style */
+  .dot {
+    width: 8px;
+    height: 8px;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 50%;
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+    border: 2px solid rgba(0, 0, 0, 0.7);
+    position: relative;
+  }
+  
+  /* Active Dot - Animated with movement */
+  .dot.active {
+    background: rgb(15, 1, 137);
+    border-color: rgb(0, 8, 235);
+    box-shadow: 0px 4px 8px 
+    rgba(255, 255, 255, 0.3); /* Glow effect */
+  }
+  
+  /* Scroll Buttons */
+  .scroll-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.6);
+    border: none;
+    color: white;
+    font-size: 8px;
+    padding: 10px;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 1100;
+    transition: background 0.3s ease-in-out;
+  }
+  
+  /* Left Scroll Button */
+  .scroll-btn.left {
+    left: 5px;
+  }
+  
+  /* Right Scroll Button */
+  .scroll-btn.right {
+    right: 5px;
+  }
+  
+  /* Hover Effect */
+  .scroll-btn:hover {
+    background: rgba(255, 255, 255, 0.6);
+    color: black;
+  }
+  

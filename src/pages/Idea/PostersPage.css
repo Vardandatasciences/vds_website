@@ -1,0 +1,764 @@
+:root {
+  --primary: #5829bb;
+  --secondary: #ff6b6b;
+  --accent1: #33d9b2;
+  --accent2: #ffb142;
+  --accent3: #ea4c89;
+  --dark: #2c3e50;
+  --light: #f9f9f9;
+  --gradient1: linear-gradient(135deg, var(--primary), #8e44ad);
+  --gradient2: linear-gradient(135deg, var(--secondary), #ff9a9e);
+  --gradient3: linear-gradient(135deg, var(--accent1), #00c9a7);
+  --gradient4: linear-gradient(135deg, var(--accent2), #ffd166);
+  --gradient5: linear-gradient(135deg, var(--accent3), #f67280);
+}
+ 
+/* Posters Container */
+.posters-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 4rem 2rem;
+  max-width: 100%;
+  margin: 0;
+  min-height: 80vh;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);
+  background-size: 200% 200%;
+  animation: gradientBackground 15s ease infinite;
+}
+ 
+@keyframes gradientBackground {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+ 
+/* Remove the old background overlay and add a new one */
+.posters-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('/src/images/idea-gif.gif') no-repeat center center;
+  background-size: cover;
+  opacity: 0.15; /* Very light background image */
+  z-index: 0; /* Reduced from 1 to 0 to push further back */
+}
+ 
+/* Add particle overlay effect */
+.posters-container::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image:
+    radial-gradient(circle at 25% 25%, rgba(255, 255, 255, 0.2) 1px, transparent 1px),
+    radial-gradient(circle at 75% 75%, rgba(255, 255, 255, 0.2) 1px, transparent 1px);
+  background-size: 50px 50px;
+  z-index: 2;
+}
+ 
+/* Text Content inside Posters Container */
+.posters-text-content {
+  max-width: 60%;
+  text-align: center;
+  color: #fff;
+  position: relative;
+  z-index: 10; /* Increased from 5 to 10 to put it in front of everything */
+  animation: fadeIn 1s ease-out;
+}
+ 
+.posters-vardaan-text,
+.posters-ideathon-text {
+  font-family: 'Poppins', sans-serif !important;
+  font-size: 4.5rem;
+  font-weight: 700;
+  color: #ffffff;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.5),
+               0 0 20px rgba(255, 255, 255, 0.3),
+               0 0 30px rgba(255, 255, 255, 0.2);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.6);
+  display: inline-block;
+  line-height: 1.2;
+  margin-bottom: 10px;
+}
+ 
+.posters-year-text {
+  color: #ff6b6b;
+  text-shadow: 0 0 10px rgba(255, 107, 107, 0.6),
+               0 0 20px rgba(255, 107, 107, 0.4);
+  -webkit-text-stroke: 1px rgba(255, 107, 107, 0.4);
+  animation: pulseColor 2s infinite alternate;
+}
+ 
+@keyframes pulseColor {
+  from { color: #ff6b6b; }
+  to { color: #ff9a9e; }
+}
+ 
+.posters-tagline {
+  font-family: 'Poppins', sans-serif !important;
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #ffffff;
+  margin-top: 20px;
+  text-align: center;
+  width: 100%;
+  letter-spacing: 1.5px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  border-left: none;
+  padding-left: 0;
+  line-height: 1.5;
+}
+ 
+/* Image (GIF) in Posters Container */
+.posters-gif-container {
+  max-width: 40%;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  z-index: 3; /* Reduced from 5 to 3 to position behind text content */
+}
+ 
+.posters-idea-gif {
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+  animation: floatImage 3s ease-in-out infinite;
+  filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.15));
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 10px;
+  padding: 10px;
+}
+ 
+/* Reduce space between sections */
+.posters-container {
+  margin-bottom: 20px;
+}
+ 
+/* Posters Info Container */
+.posters-info-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 40px;
+  max-width: 1200px;
+  margin: auto;
+  gap: 2rem;
+  overflow: hidden;
+}
+/* Underline Animation from Left to Right */
+@keyframes underlineLeftToRight {
+0% {
+  background-size: 0% 3px;
+  background-position: left bottom;
+}
+100% {
+  background-size: 100% 3px;
+  background-position: left bottom;
+}
+}
+ 
+/* Apply animation to heading */
+.posters-heading {
+  font-family: 'Poppins', sans-serif !important;
+  font-size: 2.8rem;
+  font-weight: 700;
+  margin-bottom: 30px;
+  position: relative;
+  display: inline-block;
+  background: var(--gradient1);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-align: center;
+}
+ 
+.posters-heading::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(to right, var(--primary), var(--secondary), var(--accent1));
+}
+ 
+/* Apply animation to heading */
+.posters-heading1 {
+  font-family: 'Poppins', sans-serif !important;
+  font-size: 2.8rem;
+  font-weight: 700;
+  color: var(--primary);
+  text-align: center;
+  margin: 40px auto 40px;
+  position: relative;
+  display: block;
+  width: 100%;
+  background: var(--gradient1);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+ 
+.posters-heading1::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 3px;
+  background: linear-gradient(to right, var(--primary), var(--secondary), var(--accent1));
+}
+.spacer {
+  display: block;
+  height: 50px; /* Adjust the pixel spacing */
+}
+ 
+/* Text Animation */
+.posters-info-text {
+  max-width: 50%;
+  opacity: 0;
+  transform: translateX(-100px);
+  transition: opacity 0.8s ease-out, transform 1s ease-out;
+}
+ 
+/* Specifically target the paragraphs inside posters-info-text */
+.posters-info-text p {
+  font-family: 'Poppins', sans-serif !important;
+  font-size: 1.1rem !important;
+  line-height: 1.8 !important;
+  color: var(--dark) !important;
+  font-style: normal !important;
+  text-align: justify !important;
+  margin-bottom: 15px !important;
+}
+ 
+/* Style the "Read Instructions" text */
+.click {
+  font-family: 'Poppins', sans-serif !important;
+  font-size: 1.1rem !important;
+  font-weight: 600 !important;
+  color: var(--dark) !important;
+  cursor: pointer;
+  text-align: left !important;
+  margin-left: 0 !important; /* Remove the left margin */
+  margin-top: 15px !important;
+}
+ 
+/* Enhance the PDF link styling */
+.click-link {
+  color: var(--secondary) !important;
+  font-weight: 700 !important;
+  transition: all 0.3s ease !important;
+  border-bottom: 1px dotted var(--secondary) !important;
+  text-decoration: none !important;
+  padding-bottom: 2px !important;
+}
+ 
+.click-link:hover {
+  color: var(--accent3) !important;
+  border-bottom: 1px solid var(--accent3) !important;
+}
+ 
+/* Add animation for the text when it comes into view */
+.animate-text {
+  opacity: 1 !important;
+  transform: translateX(0) !important;
+}
+ 
+/* Image Animation */
+.posters-info-image {
+  max-width: 50%;
+  opacity: 0;
+  transform: translateX(100px);
+  transition: opacity 0.8s ease-out, transform 1s ease-out;
+}
+ 
+.posters-info-image img {
+  width: 80%;
+  max-width: 500px;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  background: none !important;
+  mix-blend-mode: multiply; /* Helps remove white backgrounds */
+}
+ 
+/* When in viewport, smoothly appear */
+.animate-image {
+  opacity: 1 !important;
+  transform: translateX(0) !important;
+}
+ 
+/* Responsive Design */
+@media (max-width: 768px) {
+  .posters-container,
+  .posters-info-container {
+    flex-direction: column;
+    text-align: center;
+  }
+ 
+  .posters-text-content,
+  .posters-gif-container,
+  .posters-info-image,
+  .posters-info-text {
+    max-width: 100%;
+    text-align: center;
+  }
+ 
+  .posters-info-text {
+    max-width: 100%;
+    padding: 20px;
+  }
+ 
+  .posters-info-text p,
+  .click {
+    text-align: center !important;
+  }
+ 
+  .posters-heading {
+    text-align: center;
+    width: auto;
+    margin: 0 auto 40px;
+    display: block;
+  }
+}
+ 
+/* ANITS Section */
+.anits-container {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 40px;
+  max-width: 1200px;
+  margin: 30px auto;
+  gap: 3rem;
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(88, 41, 187, 0.1); /* Adding a default subtle border */
+}
+ 
+.anits-container:hover {
+  transform: translateY(-15px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  border-color: transparent; /* Hide border on hover as the bottom gradient takes over */
+}
+ 
+/* Add a default bottom border that's visible before hover */
+.anits-container::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 3px; /* Slightly thinner than the hover effect */
+  background: linear-gradient(to right, var(--primary), var(--secondary), var(--accent1));
+  opacity: 0.3; /* Subtle by default */
+  transition: opacity 0.5s ease;
+}
+
+.anits-container:hover::before {
+  opacity: 0; /* Hide the default border on hover */
+}
+ 
+/* Enhance the hover effect with more vibrant colors */
+.anits-container::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 5px;
+  /* Replace the single gradient with a more vibrant, animated gradient */
+  background: linear-gradient(
+    to right,
+    var(--primary) 0%,
+    var(--secondary) 20%,
+    var(--accent1) 40%,
+    var(--accent2) 60%,
+    var(--accent3) 80%,
+    var(--primary) 100%
+  );
+  background-size: 200% 100%;
+  animation: gradientMove 3s linear infinite;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.5s ease;
+}
+
+/* Add a moving gradient animation */
+@keyframes gradientMove {
+  0% {
+    background-position: 0% 0%;
+  }
+  100% {
+    background-position: 200% 0%;
+  }
+}
+
+.anits-container:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+  /* Add a glow effect to make it more vibrant */
+  box-shadow: 0 0 10px rgba(255, 107, 107, 0.5);
+}
+ 
+/* Left Side: ANITS Description, QR & Coordinator */
+.anits-left-content {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  max-width: 50%;
+}
+ 
+/* ANITS Description */
+.anits-text {
+  text-align: left;
+  margin-bottom: 15px;
+}
+ 
+.anits-heading {
+  font-family: 'Poppins', sans-serif !important;
+  font-size: 2.8rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  position: relative;
+  display: inline-block;
+  padding-bottom: 10px;
+  background: var(--gradient2);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+ 
+.anits-heading::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 60px;
+  height: 3px;
+  background: var(--gradient2);
+}
+ 
+.anits-description {
+  font-family: 'Poppins', sans-serif !important;
+  font-size: 1.1rem !important;
+  line-height: 1.7 !important;
+  color: var(--dark) !important;
+  font-style: normal !important;
+  text-align: left;
+}
+ 
+/* QR Code & Coordinator Container */
+.anits-qr-coordinator-wrapper {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 2rem;
+}
+ 
+/* QR Code */
+.anits-qr-container {
+  text-align: center;
+  width: 200px;
+}
+ 
+.qr-text {
+  font-family: 'Poppins', sans-serif !important;
+  font-size: 1rem;
+  font-weight: bold;
+  color: var(--dark);
+  font-style: normal;
+}
+ 
+.anits-qr {
+  width: 120px;
+  height: auto;
+  margin-top: 10px;
+}
+ 
+/* Coordinator & Faculty Details */
+.anits-coordinator-faculty {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+ 
+.anits-coordinator h3,
+.anits-faculty h3 {
+  font-family: 'Poppins', sans-serif !important;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--dark);
+  font-style: normal;
+}
+ 
+.anits-coordinator p,
+.anits-faculty p {
+  font-family: 'Poppins', sans-serif !important;
+  font-size: 1rem;
+  color: var(--dark);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-style: normal;
+  margin-bottom: 5px;
+}
+ 
+.whatsapp-icon {
+  width: 24px;
+  height: 24px;
+  vertical-align: middle;
+  display: inline-block;
+  margin-right: 5px;
+}
+ 
+/* Style the phone numbers with WhatsApp */
+.anits-coordinator p:last-child,
+.anits-faculty p:last-child {
+  color: #25D366; /* WhatsApp green color */
+  font-weight: 600;
+}
+ 
+/* Make sure the number placement works well on mobile */
+@media (max-width: 768px) {
+  .anits-coordinator p,
+  .anits-faculty p {
+    justify-content: center;
+  }
+ 
+  .anits-qr-coordinator-wrapper {
+    flex-direction: column;
+    align-items: center;
+  }
+ 
+  .anits-coordinator-faculty {
+    text-align: center;
+    margin-top: 20px;
+  }
+}
+ 
+/* Registration Form Link */
+.anits-registration-link {
+  width: 100%;
+  text-align: left;
+  margin-top: 15px;
+}
+ 
+.anits-qr-link {
+  font-family: 'Poppins', sans-serif !important;
+  font-size: 1rem;
+  color: var(--primary);
+  text-decoration: none;
+  font-weight: bold;
+  font-style: normal;
+}
+ 
+.anits-qr-link:hover {
+  text-decoration: underline;
+  color: var(--secondary);
+}
+ 
+/* Right Side: ANITS Image */
+.anits-image {
+  max-width: 45%;
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+  align-self: flex-start;
+}
+ 
+.anits-img {
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+ 
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .anits-container {
+    flex-direction: column;
+    text-align: center;
+    padding: 30px;
+    gap: 2rem;
+  }
+ 
+  .anits-left-content {
+    width: 100%;
+    max-width: 100%;
+    text-align: center;
+  }
+ 
+  .anits-image {
+    max-width: 80%;
+    margin: 30px auto 0;
+    align-self: center;
+  }
+}
+ 
+/* Add fade-in animation */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+ 
+/* Floating animation for the image */
+@keyframes floatImage {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+}
+ 
+/* Responsive Styling */
+@media (max-width: 1200px) {
+  .posters-vardaan-text,
+  .posters-ideathon-text {
+    font-size: 4rem;
+  }
+ 
+  .anits-container {
+    max-width: 90%;
+  }
+}
+ 
+@media (max-width: 992px) {
+  .posters-vardaan-text,
+  .posters-ideathon-text {
+    font-size: 3.5rem;
+  }
+}
+ 
+@media (max-width: 768px) {
+  .posters-container {
+    flex-direction: column;
+    padding: 3rem 1.5rem;
+  }
+ 
+  .posters-text-content,
+  .posters-gif-container {
+    max-width: 100%;
+    text-align: center;
+  }
+ 
+  .posters-vardaan-text,
+  .posters-ideathon-text {
+    font-size: 3rem;
+  }
+ 
+  .posters-info-container {
+    flex-direction: column;
+    padding: 40px 20px;
+  }
+ 
+  .posters-info-text,
+  .posters-info-image {
+    max-width: 100%;
+    text-align: center;
+  }
+ 
+  .posters-heading::after {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+ 
+  .anits-container {
+    flex-direction: column;
+  }
+ 
+  .anits-heading::after {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+ 
+  .anits-left-content {
+    text-align: center;
+  }
+ 
+  .anits-text {
+    text-align: center;
+  }
+}
+ 
+@media (max-width: 480px) {
+  .posters-vardaan-text,
+  .posters-ideathon-text {
+    font-size: 2.5rem;
+  }
+ 
+  .posters-heading,
+  .posters-heading1,
+  .anits-heading {
+    font-size: 2.2rem;
+  }
+}
+
+/* Add PDF icon styling */
+.pdf-icon-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 8px;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.pdf-icon {
+  color: var(--secondary);
+  font-size: 1.8rem;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+  transition: all 0.3s ease;
+}
+
+.pdf-icon:hover {
+  color: var(--accent3);
+  transform: scale(1.15);
+  filter: drop-shadow(0 3px 6px rgba(0, 0, 0, 0.3));
+}
+
+/* Add a slight bounce animation on hover */
+@keyframes pdfBounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}
+
+.pdf-icon-link:hover .pdf-icon {
+  animation: pdfBounce 0.6s ease infinite;
+}
+
+/* Add a subtle pulse effect to draw attention to the icon */
+.pdf-icon {
+  animation: pdfPulse 2s infinite alternate;
+}
+
+@keyframes pdfPulse {
+  0% { opacity: 0.9; }
+  100% { opacity: 1; }
+}

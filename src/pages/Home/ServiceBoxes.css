@@ -1,0 +1,254 @@
+/* src/ServiceBoxes.css */
+.service-boxes-wrapper {
+  background: linear-gradient(to bottom, #f8fafb, #fff);
+  padding: 80px 2rem 60px;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Add the new services heading styles */
+.services-heading {
+  padding: 0 0 30px 0;
+  font-family: "Inter", sans-serif;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+.services-heading h1 {
+  font-size: 3rem;
+  font-weight: 800;
+  letter-spacing: -0.9px;
+  background: linear-gradient(45deg, #1a1a1a, #444);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  font-family: 'Poppins', sans-serif;
+}
+
+.services-heading .highlight {
+  color: #ff0066;
+  position: relative;
+}
+
+.service-boxes-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1.5rem;
+}
+
+.service-box {
+  background: #fff;
+  border-radius: 20px;
+  padding: 30px 25px;
+  text-align: center;
+  transition: all 0.4s ease;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 250px;
+}
+
+/* Service box colors and styles */
+.service-box:nth-child(1) {
+  background: linear-gradient(145deg, #ffffff, #f8f7ff);
+  border-top: 4px solid var(--primary);
+}
+
+.service-box:nth-child(2) {
+  background: linear-gradient(145deg, #ffffff, #fff5f5);
+  border-top: 4px solid var(--secondary);
+}
+
+.service-box:nth-child(3) {
+  background: linear-gradient(145deg, #ffffff, #f0fffa);
+  border-top: 4px solid var(--accent1);
+}
+
+.service-box:nth-child(4) {
+  background: linear-gradient(145deg, #ffffff, #fff8f0);
+  border-top: 4px solid var(--accent2);
+}
+
+.service-box:nth-child(5) {
+  background: linear-gradient(145deg, #ffffff, #fff0f5);
+  border-top: 4px solid var(--accent3);
+}
+
+.service-box:nth-child(6) {
+  background: linear-gradient(145deg, #ffffff, #f0f7ff);
+  border-top: 4px solid #3b82f6;
+}
+
+.service-box:nth-child(7) {
+  background: linear-gradient(145deg, #ffffff, #f5f0ff);
+  border-top: 4px solid #8b5cf6;
+}
+
+.service-box:nth-child(8) {
+  background: linear-gradient(145deg, #ffffff, #fff0f0);
+  border-top: 4px solid #ef4444;
+}
+
+.service-box:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+}
+
+.icon-container {
+  width: 65px;
+  height: 65px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.25rem;
+  position: relative;
+}
+
+.service-box:nth-child(1) .icon-container { background: rgba(88, 41, 187, 0.1); }
+.service-box:nth-child(2) .icon-container { background: rgba(255, 107, 107, 0.1); }
+.service-box:nth-child(3) .icon-container { background: rgba(51, 217, 178, 0.1); }
+.service-box:nth-child(4) .icon-container { background: rgba(255, 177, 66, 0.1); }
+.service-box:nth-child(5) .icon-container { background: rgba(234, 76, 137, 0.1); }
+.service-box:nth-child(6) .icon-container { background: rgba(59, 130, 246, 0.1); }
+.service-box:nth-child(7) .icon-container { background: rgba(139, 92, 246, 0.1); }
+.service-box:nth-child(8) .icon-container { background: rgba(239, 68, 68, 0.1); }
+
+.service-box .icon {
+  font-size: 1.75rem;
+  transition: transform 0.3s ease;
+}
+
+.service-box:nth-child(1) .icon { color: var(--primary); }
+.service-box:nth-child(2) .icon { color: var(--secondary); }
+.service-box:nth-child(3) .icon { color: var(--accent1); }
+.service-box:nth-child(4) .icon { color: var(--accent2); }
+.service-box:nth-child(5) .icon { color: var(--accent3); }
+.service-box:nth-child(6) .icon { color: #3b82f6; }
+.service-box:nth-child(7) .icon { color: #8b5cf6; }
+.service-box:nth-child(8) .icon { color: #ef4444; }
+
+.service-box h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+  position: relative;
+  padding-bottom: 12px;
+  color: #333;
+  -webkit-text-fill-color: initial;
+  background-clip: initial;
+  -webkit-background-clip: initial;
+}
+
+.service-box h3::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  border-radius: 2px;
+}
+
+.service-box:nth-child(1) h3 { color: var(--primary); }
+.service-box:nth-child(2) h3 { color: var(--secondary); }
+.service-box:nth-child(3) h3 { color: var(--accent1); }
+.service-box:nth-child(4) h3 { color: var(--accent2); }
+.service-box:nth-child(5) h3 { color: var(--accent3); }
+.service-box:nth-child(6) h3 { color: #3b82f6; }
+.service-box:nth-child(7) h3 { color: #8b5cf6; }
+.service-box:nth-child(8) h3 { color: #ef4444; }
+
+.service-box:nth-child(1) h3::after { background: var(--gradient1); }
+.service-box:nth-child(2) h3::after { background: var(--gradient2); }
+.service-box:nth-child(3) h3::after { background: var(--gradient3); }
+.service-box:nth-child(4) h3::after { background: var(--gradient4); }
+.service-box:nth-child(5) h3::after { background: var(--gradient5); }
+.service-box:nth-child(6) h3::after { background: linear-gradient(135deg, #3b82f6, #60a5fa); }
+.service-box:nth-child(7) h3::after { background: linear-gradient(135deg, #8b5cf6, #a78bfa); }
+.service-box:nth-child(8) h3::after { background: linear-gradient(135deg, #ef4444, #f87171); }
+
+.service-box p {
+  font-size: 0.9rem;
+  color: #333;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .service-boxes-container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+}
+
+@media (max-width: 1024px) {
+  .services-heading h1 {
+    font-size: 2.8rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .service-boxes-container {
+    grid-template-columns: 1fr;
+  }
+  
+  .service-boxes-wrapper {
+    padding: 4rem 1rem 2rem;
+  }
+
+  .services-heading h1 {
+    font-size: 2.2rem;
+  }
+  
+  .services-heading {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+/* Add the button styles */
+.view-all-btn {
+  background-color: transparent;
+  border: 2px solid #ff0066;
+  color: #ff0066;
+  padding: 12px 28px;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.view-all-btn:hover {
+  background-color: #ff0066;
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(255, 0, 102, 0.2);
+}
+
+/* Add responsive styles for the button */
+@media (max-width: 640px) {
+  .services-heading {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .view-all-btn {
+    padding: 10px 24px;
+    font-size: 14px;
+  }
+}
+  

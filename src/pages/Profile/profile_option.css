@@ -1,0 +1,89 @@
+/* src/profile_option.css */
+.user-menu {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.logged-in-container {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.user-icon {
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.user-name {
+  margin-left: 0.5rem;
+  font-size: 1rem;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+}
+
+.login-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #333;
+  font-size: 0.7rem;
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+}
+
+.login-button:hover {
+  color: #ff0066;
+}
+
+.dropdown {
+  position: relative;
+}
+
+.dropdown-menu {
+  position: absolute;
+  font-family: 'Poppins', sans-serif;
+  top: 100%;
+  left: 0; /* Ensure the dropdown starts from the left side */
+  transform: translateX(-50%); /* Move the dropdown to the left */
+  background-color: #fff;
+  color: #333;
+  list-style: none;
+  padding: 1rem;
+  margin: 0;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.dropdown-menu li {
+  padding: 0.5rem 0;
+}
+
+.dropdown-menu li strong {
+  font-size: 1.1rem;
+}
+
+.dropdown-menu li a, .dropdown-menu li button {
+  color: #333;
+  text-decoration: none;
+  display: block;
+  width: 100%;
+  text-align: left;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.dropdown-menu li a:hover, .dropdown-menu li button:hover {
+  background-color: #fff;
+  color: #ff0066;
+}

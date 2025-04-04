@@ -1,0 +1,1155 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css');
+
+:root {
+  --primary: #5829bb;
+  --secondary: #ff6b6b;
+  --accent1: #33d9b2;
+  --accent2: #ffb142;
+  --accent3: #ea4c89;
+  --dark: #2c3e50;
+  --light: #f9f9f9;
+  --gradient1: linear-gradient(135deg, var(--primary), #8e44ad);
+  --gradient2: linear-gradient(135deg, var(--secondary), #ff9a9e);
+  --gradient3: linear-gradient(135deg, var(--accent1), #00c9a7);
+  --gradient4: linear-gradient(135deg, var(--accent2), #ffd166);
+  --gradient5: linear-gradient(135deg, var(--accent3), #f67280);
+  --text-dark: #1e293b;
+  --text-light: #64748b;
+  --background: #f8fafc;
+  --card-bg: rgba(255, 255, 255, 0.95);
+  --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+}
+
+.products-container {
+  background: var(--light);
+  min-height: 100vh;
+  font-family: 'Poppins', sans-serif;
+  position: relative;
+  overflow: hidden;
+}
+
+.products-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(circle at 10% 20%, rgba(37, 99, 235, 0.05) 0%, transparent 20%),
+    radial-gradient(circle at 90% 80%, rgba(14, 165, 233, 0.05) 0%, transparent 20%),
+    radial-gradient(circle at 50% 50%, rgba(2, 132, 199, 0.05) 0%, transparent 30%);
+  pointer-events: none;
+}
+
+.products-header {
+  text-align: center;
+  margin-bottom: 4rem;
+  position: relative;
+  padding: 8rem 2rem;
+  background: linear-gradient(
+    135deg, 
+    #6b46c1 0%,
+    #9f7aea 50%,
+    #d53f8c 100%
+  );
+  min-width: 90%;
+  height: 450px;
+  margin-top: -5px;
+  overflow: hidden;
+}
+
+.products-header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(circle at 20% 30%, rgba(255, 255, 255, 0.2) 0%, transparent 40%),
+    radial-gradient(circle at 80% 70%, rgba(255, 255, 255, 0.15) 0%, transparent 40%);
+  animation: gradientMove 15s ease-in-out infinite alternate;
+  z-index: 1;
+}
+
+@keyframes gradientMove {
+  0% {
+    background-position: 0% 0%;
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 0.8;
+  }
+  100% {
+    background-position: 100% 100%;
+    opacity: 0.5;
+  }
+}
+
+.products-header h1 {
+  font-size: 5rem;
+  font-weight: 800;
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 8px;
+  margin-bottom: 2rem;
+  position: relative;
+  z-index: 2;
+  text-shadow: 
+    0 0 20px rgba(255, 255, 255, 0.3),
+    0 0 40px rgba(255, 255, 255, 0.2),
+    0 0 60px rgba(255, 255, 255, 0.1);
+  animation: titleGlow 3s infinite alternate;
+}
+
+.products-header p {
+  font-size: 1.5rem;
+  color: rgba(255, 255, 255, 0.9);
+  max-width: 800px;
+  margin: 0 auto;
+  line-height: 1.6;
+  position: relative;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+  animation: slideInUp 1s ease-out 0.3s backwards;
+}
+
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  padding: 1.5rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.products-grid::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 80%;
+  height: 100%;
+  background: radial-gradient(circle, rgba(88, 41, 187, 0.05) 0%, rgba(255, 255, 255, 0) 70%);
+  transform: translateX(-50%);
+  z-index: -1;
+  animation: pulseBackground 10s infinite alternate;
+}
+
+@keyframes pulseBackground {
+  0% { opacity: 0.3; transform: translateX(-50%) scale(0.9); }
+  100% { opacity: 0.7; transform: translateX(-50%) scale(1.1); }
+}
+
+.product-card {
+  background: linear-gradient(145deg, #ffffff, #f8fafc);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 20px;
+  padding: 1.5rem;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  min-height: 350px;
+  border-top: none;
+}
+
+.product-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    45deg,
+    rgba(255, 255, 255, 0.1),
+    rgba(255, 255, 255, 0.3)
+  );
+  border-radius: 20px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+.product-header {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  gap: 1rem;
+}
+
+.product-image {
+  width: 100px;
+  height: 100px;
+  flex-shrink: 0;
+  transition: all 0.5s ease;
+  position: relative;
+}
+
+.product-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transition: transform 0.5s ease;
+}
+
+.product-title {
+  position: relative;
+  text-align: left;
+  flex-grow: 1;
+}
+
+.product-title h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  position: relative;
+  padding-bottom: 12px;
+  color: #333;
+}
+
+.product-title h3 {
+  font-size: 0.9rem;
+  color: #333;
+  font-weight: 700;
+  opacity: 0.9;
+}
+
+.rainbow-border {
+  display: none;
+}
+
+.product-badge {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.7));
+  backdrop-filter: blur(8px);
+  padding: 0.5rem 1rem;
+  border-radius: 30px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  color: var(--primary);
+  box-shadow: 
+    0 2px 10px rgba(0, 0, 0, 0.1),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.5);
+  border: 1px solid rgba(67, 56, 202, 0.2);
+  animation: none;
+  transition: all 0.3s ease;
+}
+
+.product-badge:hover {
+  transform: translateY(-2px);
+  box-shadow: 
+    0 4px 15px rgba(0, 0, 0, 0.15),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.6);
+}
+
+.product-description {
+  color: #333;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  margin: 0.5rem 0;
+}
+
+.features-list {
+  width: 100%;
+  padding: 0.8rem;
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 12px;
+  margin-top: auto;
+}
+
+.features-list h4 {
+  font-size: 1rem;
+  margin-bottom: 0.6rem;
+  color: #333;
+  position: relative;
+  display: inline-block;
+}
+
+.features-list h4::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, currentColor, transparent);
+}
+
+.features-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  margin-top: 0.5rem;
+}
+
+.features-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  width: 100%;
+}
+
+.feature-item {
+  flex: 1 0 calc(50% - 0.3rem);
+  padding: 0.3rem 0.4rem;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.8);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+  border: 1px solid;
+  z-index: 1;
+  font-size: 0.85rem;
+  font-weight: 500;
+  line-height: 1;
+  min-height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0.2rem;
+}
+
+/* Apply border colors to feature items based on parent card */
+.product-card:nth-child(1) .feature-item {
+  border-color: var(--primary);
+}
+
+.product-card:nth-child(2) .feature-item {
+  border-color: var(--secondary);
+}
+
+.product-card:nth-child(3) .feature-item {
+  border-color: var(--accent1);
+}
+
+.product-card:nth-child(4) .feature-item {
+  border-color: var(--accent2);
+}
+
+.product-card:nth-child(5) .feature-item {
+  border-color: var(--accent3);
+}
+
+.product-card:nth-child(6) .feature-item {
+  border-color: #3b82f6;
+}
+
+.product-card:nth-child(7) .feature-item {
+  border-color: #8b5cf6;
+}
+
+.product-card:nth-child(8) .feature-item {
+  border-color: #ef4444;
+}
+
+.product-card:nth-child(9) .feature-item {
+  border-color: #10b981;
+}
+
+.product-card:nth-child(10) .feature-item {
+  border-color: #f97316;
+}
+
+.product-card:nth-child(11) .feature-item {
+  border-color: #0ea5e9;
+}
+
+.product-card:nth-child(12) .feature-item {
+  border-color: #d946ef;
+}
+
+/* Add a nice shine effect for the border on hover */
+.feature-item::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: inherit;
+  filter: blur(4px);
+  opacity: 0;
+  z-index: -1;
+  transition: opacity 0.3s ease;
+}
+
+.feature-item:hover::before {
+  opacity: 0.5;
+}
+
+/* Keep the feature item hover animation */
+.feature-item:hover {
+  transform: scale(1.02);
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.8) 0%,
+    rgba(255, 255, 255, 0.95) 50%,
+    rgba(255, 255, 255, 0.8) 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmerEffect 1.5s infinite;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+/* Enhanced border glow on hover */
+@keyframes borderPulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(var(--color-rgb), 0.4);
+  }
+  70% {
+    box-shadow: 0 0 0 8px rgba(var(--color-rgb), 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(var(--color-rgb), 0);
+  }
+}
+
+/* Animation for feature items when card is hovered */
+.product-card:hover .features-row:first-child .feature-item {
+  animation: slideInFeature 0.5s forwards;
+}
+
+.product-card:hover .features-row:last-child .feature-item {
+  animation: slideInFeatureReverse 0.5s forwards;
+}
+
+/* Reverse direction animation for bottom row */
+@keyframes slideInFeatureReverse {
+  0% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* Staggered animations with delays */
+.product-card:hover .features-row:first-child .feature-item:nth-child(1) {
+  animation-delay: 0.1s;
+}
+
+.product-card:hover .features-row:first-child .feature-item:nth-child(2) {
+  animation-delay: 0.3s;
+}
+
+.product-card:hover .features-row:last-child .feature-item:nth-child(1) {
+  animation-delay: 0.5s;
+}
+
+.product-card:hover .features-row:last-child .feature-item:nth-child(2) {
+  animation-delay: 0.7s;
+}
+
+/* Add shimmer effect to features on hover */
+.features-row:last-child .feature-item:hover {
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.8) 0%,
+    rgba(255, 255, 255, 0.95) 50%,
+    rgba(255, 255, 255, 0.8) 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmerEffect 1.5s infinite;
+  transform: scale(1.02);
+}
+
+/* Product Image animation */
+.product-card:hover .product-image {
+  transform: scale(1.1) rotate(5deg);
+}
+
+.product-particles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.particle {
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  background: linear-gradient(135deg, #3498db, #2ecc71);
+  border-radius: 50%;
+  opacity: 0.4;
+  animation: floatParticle 8s infinite ease-in-out;
+}
+
+@keyframes floatParticle {
+  0% {
+    transform: translate(0, 0);
+    opacity: 0;
+  }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% {
+    transform: translate(calc(var(--mouse-x, 0px) / 15), calc(var(--mouse-y, 0px) / 15));
+    opacity: 0;
+  }
+}
+
+.product-info {
+  padding: 1.5rem;
+  margin-top: 1.5rem;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+
+.product-info:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .products-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .products-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .products-header h1 {
+    font-size: 2.5rem;
+  }
+
+  .products-header p {
+    font-size: 1rem;
+  }
+}
+
+/* Add these new animations */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes glow {
+  0%, 100% { box-shadow: 0 0 5px rgba(88, 41, 187, 0.2); }
+  50% { box-shadow: 0 0 20px rgba(88, 41, 187, 0.4); }
+}
+
+@keyframes textShine {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 100% 50%; }
+}
+
+/* Add rainbow glow effect */
+.product-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+    width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    135deg,
+    rgba(52, 152, 219, 0.1),
+    rgba(46, 204, 113, 0.1)
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.product-card:hover::after {
+  opacity: 1;
+}
+
+@keyframes rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { transform: translateY(30px); }
+  to { transform: translateY(0); }
+}
+
+@keyframes gradientText {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes badgePulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+/* Add shimmer effect to cards */
+.product-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    45deg,
+    rgba(255, 255, 255, 0.1),
+    rgba(255, 255, 255, 0.3)
+  );
+  border-radius: 20px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.product-card:hover::before {
+  opacity: 1;
+}
+
+/* Add icon pulse animation */
+@keyframes iconPulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+/* Add floating animation to features */
+.features-list li {
+  animation: fadeInRight 0.5s ease-out backwards;
+  transition: all 0.3s ease;
+}
+
+/* Add glowing border effect */
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 
+    0 15px 30px rgba(0, 0, 0, 0.1),
+    0 0 0 2px rgba(52, 152, 219, 0.1);
+}
+
+/* Add staggered animation for features list */
+.features-list li:nth-child(1) { animation-delay: 0.1s; }
+.features-list li:nth-child(2) { animation-delay: 0.2s; }
+.features-list li:nth-child(3) { animation-delay: 0.3s; }
+.features-list li:nth-child(4) { animation-delay: 0.4s; }
+
+/* Add smooth transition for all elements */
+* {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Header Badges Styling */
+.header-badges {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  margin-top: 3rem;
+  z-index: 2;
+  position: relative;
+}
+
+.header-badges span {
+  padding: 1rem 2rem;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 50px;
+  color: white;
+  font-size: 1.2rem;
+  font-weight: 500;
+  letter-spacing: 1px;
+  box-shadow: none;
+  transition: all 0.3s ease;
+  animation: badgeAppear 0.6s ease-out backwards;
+}
+
+/* Add hover effect for badges */
+.header-badges span:hover {
+  transform: translateY(-5px) scale(1.05);
+  background: rgba(255, 255, 255, 0.2);
+  box-shadow: none;
+}
+
+/* New animations */
+@keyframes titleGlow {
+  0% {
+    text-shadow: 
+      0 0 20px rgba(255, 255, 255, 0.3),
+      0 0 40px rgba(255, 255, 255, 0.2);
+    letter-spacing: 8px;
+  }
+  100% {
+    text-shadow: 
+      0 0 30px rgba(255, 255, 255, 0.5),
+      0 0 60px rgba(255, 255, 255, 0.3),
+      0 0 80px rgba(255, 255, 255, 0.2);
+    letter-spacing: 12px;
+  }
+}
+
+@keyframes gradientMove {
+  0% {
+    background-position: 0% 0%;
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 0.8;
+  }
+  100% {
+    background-position: 100% 100%;
+    opacity: 0.5;
+  }
+}
+
+@keyframes badgeAppear {
+  0% {
+    opacity: 0;
+    transform: translateY(20px) scale(0.8);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Add floating particles */
+.header-particles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.header-particle {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+/* Staggered animation for badges */
+.header-badges span:nth-child(1) {
+  animation-delay: 0.2s;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.2));
+}
+
+.header-badges span:nth-child(2) {
+  animation-delay: 0.4s;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.25));
+}
+
+.header-badges span:nth-child(3) {
+  animation-delay: 0.6s;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.3));
+}
+
+/* Remove the shine effect on badges */
+.header-badges span::before {
+  display: none;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .products-header h1 {
+    font-size: 3.5rem;
+    letter-spacing: 6px;
+  }
+
+  .header-badges {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .header-badges span {
+    font-size: 1rem;
+    padding: 0.8rem 1.6rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .products-header h1 {
+    font-size: 2.5rem;
+  }
+
+  .header-badges span {
+    font-size: 0.8rem;
+    padding: 0.5rem 1rem;
+  }
+}
+
+/* Different colors for different products */
+.product-card:nth-child(1) {
+  background: linear-gradient(145deg, #ffffff, #f8f7ff);
+  border-top: 4px solid var(--primary);
+}
+
+.product-card:nth-child(2) {
+  background: linear-gradient(145deg, #ffffff, #fff5f5);
+  border-top: 4px solid var(--secondary);
+}
+
+.product-card:nth-child(3) {
+  background: linear-gradient(145deg, #ffffff, #f0fffa);
+  border-top: 4px solid var(--accent1);
+}
+
+.product-card:nth-child(4) {
+  background: linear-gradient(145deg, #ffffff, #fff8f0);
+  border-top: 4px solid var(--accent2);
+}
+
+.product-card:nth-child(5) {
+  background: linear-gradient(145deg, #ffffff, #fff0f5);
+  border-top: 4px solid var(--accent3);
+}
+
+.product-card:nth-child(6) {
+  background: linear-gradient(145deg, #ffffff, #f0f7ff);
+  border-top: 4px solid #3b82f6;
+}
+
+.product-card:nth-child(7) {
+  background: linear-gradient(145deg, #ffffff, #f5f0ff);
+  border-top: 4px solid #8b5cf6;
+}
+
+.product-card:nth-child(8) {
+  background: linear-gradient(145deg, #ffffff, #fff0f0);
+  border-top: 4px solid #ef4444;
+}
+
+.product-card:nth-child(9) {
+  background: linear-gradient(145deg, #ffffff, #f0fff4);
+  border-top: 4px solid #10b981;
+}
+
+.product-card:nth-child(10) {
+  background: linear-gradient(145deg, #ffffff, #fff7f0);
+  border-top: 4px solid #f97316;
+}
+
+.product-card:nth-child(11) {
+  background: linear-gradient(145deg, #ffffff, #f0f9ff);
+  border-top: 4px solid #0ea5e9;
+}
+
+.product-card:nth-child(12) {
+  background: linear-gradient(145deg, #ffffff, #fdf0ff);
+  border-top: 4px solid #d946ef;
+}
+
+/* Product title styling with different colors */
+.product-title h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  position: relative;
+  padding-bottom: 12px;
+  color: #333;
+  -webkit-text-fill-color: initial;
+  background-clip: initial;
+  -webkit-background-clip: initial;
+}
+
+.product-title h2::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  border-radius: 2px;
+}
+
+/* Individual heading colors and underlines */
+.product-card:nth-child(1) .product-title h2 { color: var(--primary); }
+.product-card:nth-child(2) .product-title h2 { color: var(--secondary); }
+.product-card:nth-child(3) .product-title h2 { color: var(--accent1); }
+.product-card:nth-child(4) .product-title h2 { color: var(--accent2); }
+.product-card:nth-child(5) .product-title h2 { color: var(--accent3); }
+.product-card:nth-child(6) .product-title h2 { color: #3b82f6; }
+.product-card:nth-child(7) .product-title h2 { color: #8b5cf6; }
+.product-card:nth-child(8) .product-title h2 { color: #ef4444; }
+.product-card:nth-child(9) .product-title h2 { color: #10b981; }
+.product-card:nth-child(10) .product-title h2 { color: #f97316; }
+.product-card:nth-child(11) .product-title h2 { color: #0ea5e9; }
+.product-card:nth-child(12) .product-title h2 { color: #d946ef; }
+
+/* Make sure subtitle and description text is visible */
+.product-title h3 {
+  font-size: 0.9rem;
+  color: #333;
+  font-weight: 700;
+  opacity: 0.9;
+}
+
+.product-description {
+  color: #333;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  margin: 0.5rem 0;
+}
+
+/* Add badge colors to match heading colors */
+.product-card:nth-child(1) .product-badge {
+  background: var(--gradient1);
+}
+
+.product-card:nth-child(2) .product-badge {
+  background: var(--gradient2);
+}
+
+.product-card:nth-child(3) .product-badge {
+  background: var(--gradient3);
+}
+
+.product-card:nth-child(4) .product-badge {
+  background: var(--gradient4);
+}
+
+.product-card:nth-child(5) .product-badge {
+  background: var(--gradient5);
+}
+
+.product-card:nth-child(6) .product-badge {
+  background: linear-gradient(135deg, #3b82f6, #60a5fa);
+}
+
+.product-card:nth-child(7) .product-badge {
+  background: linear-gradient(135deg, #8b5cf6, #a78bfa);
+}
+
+.product-card:nth-child(8) .product-badge {
+  background: linear-gradient(135deg, #ef4444, #f87171);
+}
+
+.product-card:nth-child(9) .product-badge {
+  background: linear-gradient(135deg, #10b981, #34d399);
+}
+
+.product-card:nth-child(10) .product-badge {
+  background: linear-gradient(135deg, #f97316, #fb923c);
+}
+
+.product-card:nth-child(11) .product-badge {
+  background: linear-gradient(135deg, #0ea5e9, #38bdf8);
+}
+
+.product-card:nth-child(12) .product-badge {
+  background: linear-gradient(135deg, #d946ef, #e879f9);
+}
+
+/* Lighter hover effects for different product cards */
+.product-card:nth-child(1) .product-image::before {
+  background: linear-gradient(135deg, rgba(88, 41, 187, 0.15), rgba(142, 68, 173, 0.15));
+}
+
+.product-card:nth-child(2) .product-image::before {
+  background: linear-gradient(135deg, rgba(255, 107, 107, 0.15), rgba(255, 154, 158, 0.15));
+}
+
+.product-card:nth-child(3) .product-image::before {
+  background: linear-gradient(135deg, rgba(51, 217, 178, 0.15), rgba(0, 201, 167, 0.15));
+}
+
+.product-card:nth-child(4) .product-image::before {
+  background: linear-gradient(135deg, rgba(255, 154, 158, 0.15), rgba(255, 204, 102, 0.15));
+}
+
+.product-card:nth-child(5) .product-image::before {
+  background: linear-gradient(135deg, rgba(255, 107, 107, 0.15), rgba(255, 154, 158, 0.15));
+}
+
+.product-card:nth-child(6) .product-image::before {
+  background: linear-gradient(135deg, rgba(88, 41, 187, 0.15), rgba(142, 68, 173, 0.15));
+}
+
+.product-card:nth-child(7) .product-image::before {
+  background: linear-gradient(135deg, rgba(255, 107, 107, 0.15), rgba(255, 154, 158, 0.15));
+}
+
+.product-card:nth-child(8) .product-image::before {
+  background: linear-gradient(135deg, rgba(255, 107, 107, 0.15), rgba(255, 154, 158, 0.15));
+}
+
+.product-card:nth-child(9) .product-image::before {
+  background: linear-gradient(135deg, rgba(88, 41, 187, 0.15), rgba(142, 68, 173, 0.15));
+}
+
+.product-card:nth-child(10) .product-image::before {
+  background: linear-gradient(135deg, rgba(255, 107, 107, 0.15), rgba(255, 154, 158, 0.15));
+}
+
+.product-card:nth-child(11) .product-image::before {
+  background: linear-gradient(135deg, rgba(88, 41, 187, 0.15), rgba(142, 68, 173, 0.15));
+}
+
+.product-card:nth-child(12) .product-image::before {
+  background: linear-gradient(135deg, rgba(255, 107, 107, 0.15), rgba(255, 154, 158, 0.15));
+}
+
+/* Add colors to feature list items based on parent card */
+.product-card:nth-child(1) .features-row:first-child .feature-item {
+  border-left-color: var(--primary);
+}
+
+.product-card:nth-child(2) .features-row:first-child .feature-item {
+  border-left-color: var(--secondary);
+}
+
+.product-card:nth-child(3) .features-row:first-child .feature-item {
+  border-left-color: var(--accent1);
+}
+
+.product-card:nth-child(4) .features-row:first-child .feature-item {
+  border-left-color: var(--accent2);
+}
+
+.product-card:nth-child(5) .features-row:first-child .feature-item {
+  border-left-color: var(--accent3);
+}
+
+.product-card:nth-child(6) .features-row:first-child .feature-item {
+  border-left-color: #3b82f6;
+}
+
+.product-card:nth-child(7) .features-row:first-child .feature-item {
+  border-left-color: #8b5cf6;
+}
+
+.product-card:nth-child(8) .features-row:first-child .feature-item {
+  border-left-color: #ef4444;
+}
+
+.product-card:nth-child(9) .features-row:first-child .feature-item {
+  border-left-color: #10b981;
+}
+
+.product-card:nth-child(10) .features-row:first-child .feature-item {
+  border-left-color: #f97316;
+}
+
+.product-card:nth-child(11) .features-row:first-child .feature-item {
+  border-left-color: #0ea5e9;
+}
+
+.product-card:nth-child(12) .features-row:first-child .feature-item {
+  border-left-color: #d946ef;
+}
+
+/* Create a slide-in animation for each feature */
+@keyframes slideInFeature {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* Add a shimmer effect to the cards */
+@keyframes shimmer {
+  0% {
+    background-position: -100% 0;
+  }
+  100% {
+    background-position: 100% 0;
+  }
+}
+
+.product-card:hover .features-row:first-child .feature-item {
+  animation: slideInFeature 0.5s forwards;
+}
+
+/* Staggered animations for features */
+.product-card:hover .features-row:first-child .feature-item:nth-child(1) {
+  animation-delay: 0.1s;
+}
+
+.product-card:hover .features-row:first-child .feature-item:nth-child(2) {
+  animation-delay: 0.3s;
+}
+
+.product-card:hover .features-row:first-child .feature-item:nth-child(3) {
+  animation-delay: 0.5s;
+}
+
+.product-card:hover .features-row:first-child .feature-item:nth-child(4) {
+  animation-delay: 0.7s;
+}
+
+/* Add shimmer effect to features on hover */
+.features-row:last-child .feature-item:hover {
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.8) 0%,
+    rgba(255, 255, 255, 0.95) 50%,
+    rgba(255, 255, 255, 0.8) 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmerEffect 1.5s infinite;
+  transform: scale(1.02);
+}
+
+/* Product Image animation */
+.product-card:hover .product-image {
+  transform: scale(1.1) rotate(5deg);
+}

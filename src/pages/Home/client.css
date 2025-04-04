@@ -1,0 +1,37 @@
+/* src/FeaturedClients.css */
+.featured-clients-container {
+  margin-top: -20px;
+  text-align: center;
+  padding: 4rem 2rem;
+  background-color: #fff;
+  font-family: 'Poppins', sans-serif;
+}
+
+
+.marquee {
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  box-sizing: border-box;
+}
+
+.marquee-content {
+  display: inline-flex;
+  margin-top: 50px;
+  animation: marquee 30s linear infinite;
+}
+
+.marquee-content img {
+
+  height: 50px;
+  margin: 0 2.5rem;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translate(0);
+  }
+  100% {
+    transform: translate(-50%);
+  }
+}
