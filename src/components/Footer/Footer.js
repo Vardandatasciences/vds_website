@@ -21,14 +21,14 @@ const Footer = () => {
           <h3>Our Services</h3>
           <ul>
             <li><a href="#ai">Artificial Intelligence</a></li>
-              <li><a href="#business">Business Analytics</a></li>
-              <li><a href="#data-sciences">Data Sciences</a></li>
-              <li><a href="#data-analytics">Data Analytics</a></li>
-              <li><a href="#education">Education</a></li>
-              <li><a href="#finance">Finance</a></li>
-              <li><a href="#generative-ai">Generative AI</a></li>
-              <li><a href="#software">Software Engineering</a></li>
-              <li><a href="#deep-learning">Deep Learning</a></li>
+            <li><a href="#business">Business Analytics</a></li>
+            <li><a href="#data-sciences">Data Sciences</a></li>
+            <li><a href="#data-analytics">Data Analytics</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a href="#finance">Finance</a></li>
+            <li><a href="#generative-ai">Generative AI</a></li>
+            <li><a href="#software">Software Engineering</a></li>
+            <li><a href="#deep-learning">Deep Learning</a></li>
           </ul>
         </div>
         <div className="footer-section useful-links">
@@ -67,9 +67,15 @@ const Footer = () => {
           </div>
         </div>
       </div>
-      <div className="footer-logo-corner">
+      
+      <div className="footer-logo-corner desktop-logo">
         <img src={vardaanLogo} alt="Vardaan Logo" />
       </div>
+      
+      <div className="footer-logo-mobile">
+        <img src={vardaanLogo} alt="Vardaan Logo" />
+      </div>
+      
       <div className="footer-bottom">
         <p>Copyright @ 2025 Vardaan Data Sciences Pvt. Ltd. | All rights reserved</p>
       </div>

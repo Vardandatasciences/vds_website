@@ -1,0 +1,38 @@
+/* Breakpoints definition for consistent responsive behavior across the site
+ * These values match Bootstrap 5's breakpoint system for familiarity
+ */
+
+:root {
+  /* Breakpoint values */
+  --breakpoint-xs: 0;
+  --breakpoint-sm: 576px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 992px;
+  --breakpoint-xl: 1200px;
+  --breakpoint-xxl: 1400px;
+  
+  /* Container max-widths */
+  --container-sm: 540px;
+  --container-md: 720px;
+  --container-lg: 960px;
+  --container-xl: 1140px;
+  --container-xxl: 1320px;
+}
+
+/* 
+  Usage:
+  
+  Wrap your CSS rules in the appropriate media query:
+  
+  @media (min-width: var(--breakpoint-md)) {
+    /* Styles for tablet and up */
+  }
+  
+  @media (max-width: calc(var(--breakpoint-md) - 1px)) {
+    /* Styles for smaller than tablet */
+  }
+  
+  @media (min-width: var(--breakpoint-md)) and (max-width: calc(var(--breakpoint-lg) - 1px)) {
+    /* Styles for tablet only */
+  }
+*/ 

@@ -1,0 +1,148 @@
+/* Import breakpoints first for access to variables */
+@import './common/breakpoints.css';
+
+/* Import responsive grid system */
+@import './common/responsive-grid.css';
+
+/* Import flex utilities */
+@import './common/flex-utils.css';
+
+/* Import common responsive styles */
+@import './common/responsive.css';
+
+/* Import mobile-specific styles */
+@import './common/mobile.css';
+
+/* Base reset for consistent cross-browser behavior */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Ensure proper viewport behavior */
+html, body {
+  width: 100%;
+  overflow-x: hidden;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
+}
+
+/* Responsive image rules */
+img, video, svg {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Container width constraints for consistency using variables */
+.container {
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+/* Container widths at different breakpoints */
+@media (min-width: var(--breakpoint-sm)) {
+  .container {
+    max-width: var(--container-sm);
+  }
+}
+
+@media (min-width: var(--breakpoint-md)) {
+  .container {
+    max-width: var(--container-md);
+  }
+}
+
+@media (min-width: var(--breakpoint-lg)) {
+  .container {
+    max-width: var(--container-lg);
+  }
+}
+
+@media (min-width: var(--breakpoint-xl)) {
+  .container {
+    max-width: var(--container-xl);
+  }
+}
+
+@media (min-width: var(--breakpoint-xxl)) {
+  .container {
+    max-width: var(--container-xxl);
+  }
+}
+
+/* Ensure forms are responsive */
+input, textarea, select, button {
+  font-family: inherit;
+  font-size: inherit;
+  max-width: 100%;
+}
+
+/* Touch-friendly form elements on mobile */
+@media (max-width: calc(var(--breakpoint-sm) - 1px)) {
+  input, select, textarea, button {
+    font-size: 16px; /* Prevents iOS zoom on focus */
+    min-height: 44px; /* Minimum touch target size */
+  }
+}
+
+/* Base typography responsive adjustments */
+h1 {
+  font-size: 1.8rem;
+  line-height: 1.2;
+}
+
+h2 {
+  font-size: 1.5rem;
+  line-height: 1.2;
+}
+
+h3 {
+  font-size: 1.3rem;
+  line-height: 1.3;
+}
+
+/* Typography scales up proportionally on larger screens */
+@media (min-width: var(--breakpoint-md)) {
+  h1 {
+    font-size: 2.5rem;
+  }
+  
+  h2 {
+    font-size: 2rem;
+  }
+  
+  h3 {
+    font-size: 1.5rem;
+  }
+}
+
+@media (min-width: var(--breakpoint-lg)) {
+  h1 {
+    font-size: 3rem;
+  }
+  
+  h2 {
+    font-size: 2.25rem;
+  }
+  
+  h3 {
+    font-size: 1.75rem;
+  }
+}
+
+/* Utility class for fixing overflow issues */
+.no-horizontal-scroll {
+  overflow-x: hidden;
+  width: 100%;
+}
+
+/* Fix for janky scrolling on iOS */
+body {
+  -webkit-overflow-scrolling: touch;
+} 

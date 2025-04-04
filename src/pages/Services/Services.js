@@ -182,14 +182,36 @@ const Services = () => {
       <div className="services-header" ref={headerRef}>
         <div className="header-content">
           <div className="innovation-container">
+            {/* Desktop version */}
             <motion.h1
               initial={{ opacity: 0, y: -50 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, ease: "easeOut" }}
-              className="enterprise-style-heading"
+              className="enterprise-style-heading desktop-heading"
             >
               Innovative Solutions
             </motion.h1>
+            
+            {/* Mobile version with better visibility */}
+            <div className="mobile-heading">
+              <motion.h1
+                initial={{ opacity: 0, y: -20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, ease: "easeOut", delay: 0.1 }}
+                className="enterprise-style-heading"
+              >
+                Innovative
+              </motion.h1>
+              <motion.h1
+                initial={{ opacity: 0, y: -20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, ease: "easeOut", delay: 0.3 }}
+                className="enterprise-style-heading"
+              >
+                Solutions
+              </motion.h1>
+            </div>
+            
             <img src={innovationIcon} alt="Innovation" className="innovation-image" />
           </div>
         </div>

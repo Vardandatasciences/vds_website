@@ -48,7 +48,7 @@ const contentData = [
 ];
  
 const AboutUs = () => {
-  // Add a scroll animation effect
+  // Add a scroll animation effect with consideration for mobile
   useEffect(() => {
     const profileElements = document.querySelectorAll('.aboutus-profile');
     
@@ -63,13 +63,33 @@ const AboutUs = () => {
     
     profileElements.forEach(profile => {
       profile.style.opacity = 0;
-      profile.style.transform = 'translateY(50px)';
+      profile.style.transform = 'translateY(30px)'; // Reduced animation distance for better mobile experience
       profile.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
       observer.observe(profile);
     });
     
+    // Cleanup function
     return () => {
       profileElements.forEach(profile => observer.unobserve(profile));
+    };
+  }, []);
+  
+  // Add window resize listener to handle orientation changes
+  useEffect(() => {
+    const handleResize = () => {
+      // Force repaint on resize to ensure proper layout
+      document.querySelectorAll('.aboutus-profile').forEach(profile => {
+        profile.style.display = 'none';
+        setTimeout(() => {
+          profile.style.display = '';
+        }, 0);
+      });
+    };
+
+    window.addEventListener('resize', handleResize);
+    
+    return () => {
+      window.removeEventListener('resize', handleResize);
     };
   }, []);
   
@@ -83,13 +103,13 @@ const AboutUs = () => {
       <div className="aboutus-profiles-container">
         {contentData.map((profile, index) => (
           <div className="aboutus-profile" key={index}>
+            <div className="aboutus-image">
+              <img src={profile.imageSrc} alt={profile.title} />
+            </div>
             <div className="aboutus-info">
               <h2 className="aboutus-name">{profile.title}</h2>
               <h3 className="aboutus-position">{profile.subtitle}</h3>
               <p className="aboutus-bio">{profile.description}</p>
-            </div>
-            <div className="aboutus-image">
-              <img src={profile.imageSrc} alt={profile.title} />
             </div>
           </div>
         ))}

@@ -1,0 +1,209 @@
+/* Mobile-specific optimizations and components
+ * This file contains styles specifically for enhancing mobile user experience
+ */
+
+/* Import our breakpoints */
+@import './breakpoints.css';
+
+/* Mobile navigation optimizations */
+.mobile-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: rgba(255, 255, 255, 0.98);
+  z-index: 1000;
+  transform: translateX(-100%);
+  transition: transform 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem;
+  overflow-y: auto;
+}
+
+.mobile-nav.active {
+  transform: translateX(0);
+}
+
+.mobile-nav-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.mobile-menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+@media (max-width: calc(var(--breakpoint-lg) - 1px)) {
+  .mobile-menu-toggle {
+    display: block;
+  }
+  
+  .desktop-nav {
+    display: none;
+  }
+}
+
+/* Bottom mobile navigation bar */
+.mobile-bottom-nav {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: white;
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+  z-index: 100;
+  padding: 0.5rem 1rem;
+}
+
+.mobile-bottom-nav-items {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.mobile-bottom-nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0.5rem;
+  color: #333;
+  text-decoration: none;
+  font-size: 0.7rem;
+}
+
+.mobile-bottom-nav-icon {
+  font-size: 1.2rem;
+  margin-bottom: 0.25rem;
+}
+
+@media (max-width: calc(var(--breakpoint-md) - 1px)) {
+  .mobile-bottom-nav {
+    display: block;
+  }
+  
+  /* Add padding to body to prevent content from being hidden behind the bottom nav */
+  body {
+    padding-bottom: 4rem;
+  }
+}
+
+/* Mobile-friendly touch targets */
+.touch-target {
+  min-height: 44px;
+  min-width: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Collapsible mobile sections */
+.mobile-collapsible {
+  border: 1px solid #eee;
+  border-radius: 4px;
+  margin-bottom: 1rem;
+  overflow: hidden;
+}
+
+.mobile-collapsible-header {
+  padding: 1rem;
+  background: #f9f9f9;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+}
+
+.mobile-collapsible-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+
+.mobile-collapsible.active .mobile-collapsible-content {
+  max-height: 500px; /* Adjust based on your content needs */
+  padding: 1rem;
+}
+
+/* Mobile-optimized buttons */
+.btn-mobile {
+  display: block;
+  width: 100%;
+  padding: 12px 16px;
+  text-align: center;
+  border-radius: 8px;
+  margin-bottom: 0.75rem;
+}
+
+/* Mobile-friendly forms */
+.form-mobile {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-mobile input, 
+.form-mobile textarea,
+.form-mobile select {
+  margin-bottom: 1rem;
+  padding: 0.75rem;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  font-size: 16px; /* Prevents iOS zoom */
+}
+
+/* Toast notifications for mobile */
+.mobile-toast {
+  position: fixed;
+  bottom: 4.5rem; /* Position above bottom nav */
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 0.75rem 1rem;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  z-index: 1000;
+  max-width: 80%;
+  text-align: center;
+}
+
+/* Pull-to-refresh indicator styles */
+.pull-to-refresh {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f8f8f8;
+  transform: translateY(-100%);
+  transition: transform 0.3s ease;
+  z-index: 99;
+}
+
+.pull-to-refresh.active {
+  transform: translateY(0);
+}
+
+/* Hide scrollbars but keep functionality */
+.hide-scrollbar {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+} 

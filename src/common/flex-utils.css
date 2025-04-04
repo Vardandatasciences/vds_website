@@ -1,0 +1,372 @@
+/* Responsive Flexbox Utilities
+ * A collection of utility classes for responsive flex layouts
+ */
+
+/* Import breakpoints */
+@import './breakpoints.css';
+
+/* Base flex containers */
+.flex {
+  display: flex;
+}
+
+.flex-inline {
+  display: inline-flex;
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
+.flex-nowrap {
+  flex-wrap: nowrap;
+}
+
+/* Flex directions */
+.flex-row {
+  flex-direction: row;
+}
+
+.flex-row-reverse {
+  flex-direction: row-reverse;
+}
+
+.flex-col {
+  flex-direction: column;
+}
+
+.flex-col-reverse {
+  flex-direction: column-reverse;
+}
+
+/* On mobile, default to column layout for better readability */
+.flex-responsive {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Switch to row layout on tablets and up */
+@media (min-width: var(--breakpoint-md)) {
+  .flex-responsive {
+    flex-direction: row;
+  }
+}
+
+/* Justify content classes */
+.justify-start {
+  justify-content: flex-start;
+}
+
+.justify-end {
+  justify-content: flex-end;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.justify-around {
+  justify-content: space-around;
+}
+
+.justify-evenly {
+  justify-content: space-evenly;
+}
+
+/* Align items classes */
+.items-start {
+  align-items: flex-start;
+}
+
+.items-end {
+  align-items: flex-end;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.items-baseline {
+  align-items: baseline;
+}
+
+.items-stretch {
+  align-items: stretch;
+}
+
+/* Align content classes */
+.content-start {
+  align-content: flex-start;
+}
+
+.content-end {
+  align-content: flex-end;
+}
+
+.content-center {
+  align-content: center;
+}
+
+.content-between {
+  align-content: space-between;
+}
+
+.content-around {
+  align-content: space-around;
+}
+
+.content-stretch {
+  align-content: stretch;
+}
+
+/* Align self classes */
+.self-auto {
+  align-self: auto;
+}
+
+.self-start {
+  align-self: flex-start;
+}
+
+.self-end {
+  align-self: flex-end;
+}
+
+.self-center {
+  align-self: center;
+}
+
+.self-stretch {
+  align-self: stretch;
+}
+
+/* Flex utilities */
+.flex-1 {
+  flex: 1 1 0%;
+}
+
+.flex-auto {
+  flex: 1 1 auto;
+}
+
+.flex-initial {
+  flex: 0 1 auto;
+}
+
+.flex-none {
+  flex: none;
+}
+
+/* Flex grow */
+.grow-0 {
+  flex-grow: 0;
+}
+
+.grow {
+  flex-grow: 1;
+}
+
+/* Flex shrink */
+.shrink-0 {
+  flex-shrink: 0;
+}
+
+.shrink {
+  flex-shrink: 1;
+}
+
+/* Gap utilities */
+.gap-0 {
+  gap: 0;
+}
+
+.gap-1 {
+  gap: 0.25rem;
+}
+
+.gap-2 {
+  gap: 0.5rem;
+}
+
+.gap-3 {
+  gap: 1rem;
+}
+
+.gap-4 {
+  gap: 1.5rem;
+}
+
+.gap-5 {
+  gap: 2rem;
+}
+
+.gap-6 {
+  gap: 3rem;
+}
+
+/* Responsive order control */
+.order-first {
+  order: -9999;
+}
+
+.order-last {
+  order: 9999;
+}
+
+.order-0 {
+  order: 0;
+}
+
+.order-1 {
+  order: 1;
+}
+
+.order-2 {
+  order: 2;
+}
+
+.order-3 {
+  order: 3;
+}
+
+.order-4 {
+  order: 4;
+}
+
+.order-5 {
+  order: 5;
+}
+
+/* Mobile-first order changes */
+@media (max-width: calc(var(--breakpoint-md) - 1px)) {
+  .order-first-sm {
+    order: -9999;
+  }
+  
+  .order-last-sm {
+    order: 9999;
+  }
+}
+
+/* Common responsive flex patterns */
+/* Stack on mobile, side by side on larger screens */
+.flex-stack-row {
+  display: flex;
+  flex-direction: column;
+}
+
+@media (min-width: var(--breakpoint-md)) {
+  .flex-stack-row {
+    flex-direction: row;
+  }
+}
+
+/* Side by side on mobile, stacked on larger screens */
+.flex-row-stack {
+  display: flex;
+  flex-direction: row;
+}
+
+@media (min-width: var(--breakpoint-md)) {
+  .flex-row-stack {
+    flex-direction: column;
+  }
+}
+
+/* Two column layout that becomes one column on mobile */
+.flex-2-col {
+  display: flex;
+  flex-direction: column;
+}
+
+@media (min-width: var(--breakpoint-md)) {
+  .flex-2-col {
+    flex-direction: row;
+  }
+  
+  .flex-2-col > * {
+    flex: 1;
+  }
+}
+
+/* Responsive direction changes at each breakpoint */
+@media (min-width: var(--breakpoint-sm)) {
+  .flex-row-sm {
+    flex-direction: row;
+  }
+  
+  .flex-col-sm {
+    flex-direction: column;
+  }
+}
+
+@media (min-width: var(--breakpoint-md)) {
+  .flex-row-md {
+    flex-direction: row;
+  }
+  
+  .flex-col-md {
+    flex-direction: column;
+  }
+}
+
+@media (min-width: var(--breakpoint-lg)) {
+  .flex-row-lg {
+    flex-direction: row;
+  }
+  
+  .flex-col-lg {
+    flex-direction: column;
+  }
+}
+
+@media (min-width: var(--breakpoint-xl)) {
+  .flex-row-xl {
+    flex-direction: row;
+  }
+  
+  .flex-col-xl {
+    flex-direction: column;
+  }
+}
+
+/* Center content both horizontally and vertically */
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Common flex layouts */
+.flex-between-center {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.flex-center-start {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.flex-center-end {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+/* Responsive wrap behavior */
+.flex-wrap-sm {
+  flex-wrap: nowrap;
+}
+
+@media (max-width: calc(var(--breakpoint-md) - 1px)) {
+  .flex-wrap-sm {
+    flex-wrap: wrap;
+  }
+} 

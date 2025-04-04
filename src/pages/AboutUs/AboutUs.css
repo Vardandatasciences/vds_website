@@ -1,3 +1,5 @@
+/* Import the common responsive styles */
+@import url('../../common/responsive.css');
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
  
@@ -489,16 +491,12 @@
   overflow: hidden;
   box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  flex-direction: column; /* Default to column for mobile */
 }
 
 .aboutus-profile:hover {
   transform: translateY(-10px);
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-}
-
-/* Alternate profile direction */
-.aboutus-profile:nth-child(even) {
-  flex-direction: row-reverse;
 }
 
 /* Add colorful accent border to each profile */
@@ -507,36 +505,32 @@
   position: absolute;
   top: 0;
   left: 0;
-  width: 5px;
-  height: 100%;
-  background: linear-gradient(to bottom, #ff0066, #6600ff);
-}
-
-.aboutus-profile:nth-child(even)::before {
-  left: auto;
-  right: 0;
+  width: 100%;
+  height: 5px;
+  background: linear-gradient(to right, #ff0066, #6600ff);
 }
 
 .aboutus-profile:nth-child(3n+1)::before {
-  background: linear-gradient(to bottom, #ff0066, #ff9a9e);
+  background: linear-gradient(to right, #ff0066, #ff9a9e);
 }
 
 .aboutus-profile:nth-child(3n+2)::before {
-  background: linear-gradient(to bottom, #4A3AFF, #8e44ad);
+  background: linear-gradient(to right, #4A3AFF, #8e44ad);
 }
 
 .aboutus-profile:nth-child(3n+3)::before {
-  background: linear-gradient(to bottom, #33d9b2, #00c9a7);
+  background: linear-gradient(to right, #33d9b2, #00c9a7);
 }
 
 /* Profile information */
 .aboutus-info {
   flex: 1;
-  padding: 40px;
+  padding: 30px;
+  order: 2; /* On mobile, content comes after image */
 }
 
 .aboutus-name {
-  font-size: 28px;
+  font-size: 24px;
   margin-bottom: 5px;
   color: #2c3e50;
   font-family: 'Poppins', sans-serif;
@@ -575,7 +569,7 @@
 }
 
 .aboutus-position {
-  font-size: 18px;
+  font-size: 16px;
   margin-bottom: 20px;
   font-weight: 500;
   color: #666;
@@ -603,14 +597,16 @@
   font-family: 'Inter', sans-serif;
 }
 
-/* Profile image - UPDATED with smaller image size */
+/* Profile image */
 .aboutus-image {
-  flex: 0 0 300px; /* Reduced from 350px */
-  overflow: hidden;
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
+  width: 100%;
+  max-height: 250px;
+  overflow: hidden;
+  order: 1; /* On mobile, image comes first */
 }
 
 .aboutus-image img {
@@ -618,7 +614,7 @@
   height: 100%;
   object-fit: cover;
   transition: transform 0.5s ease;
-  max-height: 350px; /* Added maximum height constraint */
+  display: block;
 }
 
 .aboutus-profile:hover .aboutus-image img {
@@ -626,67 +622,76 @@
 }
 
 /* Responsive design */
-@media (max-width: 1024px) {
+@media (min-width: 768px) {
+  .aboutus-profiles-container {
+    padding: 30px;
+  }
+  
   .aboutus-profile {
-    flex-direction: column !important;
+    flex-direction: row; /* Switch to horizontal layout on tablets+ */
+  }
+  
+  .aboutus-profile:nth-child(even) {
+    flex-direction: row-reverse;
   }
   
   .aboutus-image {
-    flex: 0 0 250px; /* Reduced from 300px */
-    max-height: 300px;
+    flex: 0 0 300px;
+    max-height: none;
+    height: auto;
+    order: unset;
+  }
+  
+  .aboutus-info {
+    padding: 40px;
+    order: unset;
   }
   
   .aboutus-profile::before {
-    width: 100%;
-    height: 5px;
+    width: 5px;
+    height: 100%;
     top: 0;
     left: 0;
-    right: auto;
+  }
+  
+  .aboutus-profile:nth-child(even)::before {
+    left: auto;
+    right: 0;
+  }
+  
+  .aboutus-name {
+    font-size: 28px;
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 767px) {
   .aboutus-header {
-    padding: 40px 20px;
+    padding: 40px 15px;
   }
   
   .aboutus-main-title {
-    font-size: 2.5rem;
+    font-size: 2.2rem;
   }
   
   .aboutus-intro {
     font-size: 1rem;
-    padding: 0 20px;
+    padding: 0 15px;
   }
   
-  .aboutus-info {
-    padding: 30px;
-  }
-  
-  .aboutus-name {
-    font-size: 24px;
-  }
-  
-  .aboutus-position {
-    font-size: 16px;
-  }
-  
-  .aboutus-bio {
-    font-size: 15px;
-  }
-  
-  .aboutus-image {
-    flex: 0 0 220px; /* Reduced from 250px */
+  .aboutus-profiles-container {
+    gap: 30px;
+    padding: 15px;
+    margin: 20px auto;
   }
 }
 
 @media (max-width: 480px) {
   .aboutus-header {
-    padding: 30px 15px;
+    padding: 30px 10px;
   }
   
   .aboutus-main-title {
-    font-size: 2rem;
+    font-size: 1.8rem;
   }
   
   .aboutus-intro {
@@ -698,20 +703,367 @@
   }
   
   .aboutus-name {
-    font-size: 22px;
+    font-size: 20px;
   }
   
   .aboutus-position {
-    font-size: 15px;
+    font-size: 14px;
     margin-bottom: 15px;
   }
   
   .aboutus-bio {
     font-size: 14px;
+    line-height: 1.6;
   }
   
   .aboutus-image {
-    flex: 0 0 180px; /* Reduced from 200px */
+    max-height: 200px;
+  }
+  
+  .aboutus-profiles-container {
+    gap: 25px;
+    padding: 10px;
+  }
+}
+ 
+/* Enhanced responsive media queries that match our common standards */
+
+/* Large Desktop Screens (1200px and up) */
+@media (min-width: 1200px) {
+  .data-sciences-container {
+    padding: 5rem 8rem;
+    gap: 10rem;
+  }
+  
+  .text-content h1, .text-content h2 {
+    font-size: 3rem;
+  }
+  
+  .text-content p {
+    font-size: 1.2rem;
+  }
+  
+  .subtitle {
+    font-size: 1.5rem;
+  }
+  
+  .explore-button {
+    font-size: 1.7rem;
+    padding: 1.2rem 2.5rem;
+  }
+  
+  .aboutus-main-title {
+    font-size: 3.5rem;
+  }
+  
+  .aboutus-intro {
+    font-size: 1.3rem;
+    max-width: 800px;
+  }
+}
+
+/* Desktop Screens (992px to 1199px) */
+@media (min-width: 992px) and (max-width: 1199px) {
+  .data-sciences-container {
+    padding: 4rem 6rem;
+    gap: 8rem;
+  }
+  
+  .text-content h1, .text-content h2 {
+    font-size: 2.5rem;
+  }
+  
+  .text-content p {
+    font-size: 1.1rem;
+  }
+  
+  .explore-button {
+    font-size: 1.6rem;
+  }
+  
+  .aboutus-main-title {
+    font-size: 3rem;
+  }
+  
+  .aboutus-intro {
+    font-size: 1.2rem;
+    max-width: 750px;
+  }
+  
+  .aboutus-profile {
+    width: calc(33.333% - 2rem);
+  }
+}
+
+/* Tablet Screens (768px to 991px) */
+@media (min-width: 768px) and (max-width: 991px) {
+  .data-sciences-container {
+    padding: 3rem 4rem;
+    gap: 4rem;
+    flex-direction: column;
+    margin-bottom: 60px;
+  }
+  
+  .data-sciences-container:nth-child(even) {
+    flex-direction: column;
+  }
+  
+  .text-content, .video-content, .image-content {
+    max-width: 100%;
+    margin-right: 0;
+    transform: translateY(-50px);
+  }
+  
+  .data-sciences-container:nth-child(even) .text-content,
+  .data-sciences-container:nth-child(even) .video-content,
+  .data-sciences-container:nth-child(even) .image-content {
+    transform: translateY(-50px);
+  }
+  
+  .animate-text, .animate-video, .animate-image {
+    transform: translateY(0) !important;
+  }
+  
+  .text-content h1, .text-content h2 {
+    font-size: 2.2rem;
+  }
+  
+  .text-content p {
+    font-size: 1rem;
+  }
+  
+  .subtitle {
+    font-size: 1.2rem;
+  }
+  
+  .explore-button {
+    font-size: 1.4rem;
+    padding: 0.9rem 1.8rem;
+  }
+  
+  .aboutus-header {
+    padding: 3rem 1rem;
+  }
+  
+  .aboutus-main-title {
+    font-size: 2.5rem;
+  }
+  
+  .aboutus-intro {
+    font-size: 1.1rem;
+    max-width: 90%;
+  }
+  
+  .aboutus-profiles-container {
+    padding: 2rem;
+  }
+  
+  .aboutus-profile {
+    width: calc(50% - 2rem);
+    margin: 1rem;
+  }
+  
+  .aboutus-info {
+    padding: 1.5rem;
+  }
+  
+  .aboutus-name {
+    font-size: 1.4rem;
+  }
+  
+  .aboutus-position {
+    font-size: 0.9rem;
+  }
+  
+  .aboutus-bio {
+    font-size: 0.95rem;
+  }
+}
+
+/* Large Mobile Screens (576px to 767px) */
+@media (min-width: 576px) and (max-width: 767px) {
+  .data-sciences-container {
+    padding: 2.5rem 2rem;
+    gap: 3rem;
+    flex-direction: column;
+    margin-bottom: 40px;
+  }
+  
+  .data-sciences-container:nth-child(even) {
+    flex-direction: column;
+  }
+  
+  .text-content, .video-content, .image-content {
+    max-width: 100%;
+    margin-right: 0;
+    transform: translateY(-30px);
+  }
+  
+  .data-sciences-container:nth-child(even) .text-content,
+  .data-sciences-container:nth-child(even) .video-content,
+  .data-sciences-container:nth-child(even) .image-content {
+    transform: translateY(-30px);
+  }
+  
+  .text-content h1, .text-content h2 {
+    font-size: 2rem;
+  }
+  
+  .text-content p {
+    font-size: 0.95rem;
+  }
+  
+  .subtitle {
+    font-size: 1.1rem;
+    margin: 0.6rem 0 1rem 0;
+  }
+  
+  .explore-button {
+    font-size: 1.2rem;
+    padding: 0.8rem 1.6rem;
+  }
+  
+  .video-content img, .image-content img {
+    max-width: 300px;
+  }
+  
+  .aboutus-header {
+    padding: 2.5rem 1rem;
+  }
+  
+  .aboutus-main-title {
+    font-size: 2.2rem;
+  }
+  
+  .aboutus-intro {
+    font-size: 1rem;
+    max-width: 95%;
+    padding: 0 1rem;
+  }
+  
+  .aboutus-profiles-container {
+    padding: 1.5rem;
+  }
+  
+  .aboutus-profile {
+    width: 100%;
+    margin: 1rem 0;
+  }
+  
+  .aboutus-info {
+    padding: 1.2rem;
+  }
+  
+  .aboutus-name {
+    font-size: 1.3rem;
+  }
+  
+  .aboutus-position {
+    font-size: 0.85rem;
+  }
+  
+  .aboutus-bio {
+    font-size: 0.9rem;
+  }
+}
+
+/* Small Mobile Screens (up to 575px) */
+@media (max-width: 575px) {
+  .data-sciences-container {
+    padding: 2rem 1rem;
+    gap: 2rem;
+    flex-direction: column;
+    margin-bottom: 30px;
+  }
+  
+  .data-sciences-container:nth-child(even) {
+    flex-direction: column;
+  }
+  
+  .text-content, .video-content, .image-content {
+    max-width: 100%;
+    margin-right: 0;
+    transform: translateY(-20px);
+  }
+  
+  .data-sciences-container:nth-child(even) .text-content,
+  .data-sciences-container:nth-child(even) .video-content,
+  .data-sciences-container:nth-child(even) .image-content {
+    transform: translateY(-20px);
+  }
+  
+  .text-content h1, .text-content h2 {
+    font-size: 1.8rem;
+  }
+  
+  .text-content p {
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+  
+  .subtitle {
+    font-size: 1rem;
+    margin: 0.5rem 0 0.8rem 0;
+  }
+  
+  .explore-button {
+    font-size: 1.1rem;
+    padding: 0.7rem 1.4rem;
+    border-radius: 20px;
+  }
+  
+  .video-content img, .image-content img {
+    max-width: 100%;
+  }
+  
+  .aboutus-header {
+    padding: 2rem 0.8rem;
+  }
+  
+  .aboutus-main-title {
+    font-size: 1.8rem;
+  }
+  
+  .aboutus-intro {
+    font-size: 0.9rem;
+    padding: 0 0.8rem;
+    line-height: 1.5;
+  }
+  
+  .aboutus-profiles-container {
+    padding: 1rem;
+  }
+  
+  .aboutus-profile {
+    width: 100%;
+    margin: 0.8rem 0;
+  }
+  
+  .aboutus-profile::before {
+    width: 100px;
+    height: 100px;
+  }
+  
+  .aboutus-info {
+    padding: 1rem;
+  }
+  
+  .aboutus-name {
+    font-size: 1.2rem;
+  }
+  
+  .aboutus-position {
+    font-size: 0.8rem;
+    margin: 0.3rem 0 0.6rem;
+  }
+  
+  .aboutus-bio {
+    font-size: 0.85rem;
+    line-height: 1.5;
+  }
+  
+  .aboutus-image {
+    height: 200px;
   }
 }
  
