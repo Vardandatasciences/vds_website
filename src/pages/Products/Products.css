@@ -396,82 +396,24 @@
   opacity: 0.5;
 }
 
-/* Keep the feature item hover animation */
+/* Modify the feature-item hover state */
 .feature-item:hover {
-  transform: scale(1.02);
-  background: linear-gradient(
-    90deg,
-    rgba(255, 255, 255, 0.8) 0%,
-    rgba(255, 255, 255, 0.95) 50%,
-    rgba(255, 255, 255, 0.8) 100%
-  );
-  background-size: 200% 100%;
-  animation: shimmerEffect 1.5s infinite;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  background: rgba(255, 255, 255, 0.9);
 }
 
-/* Enhanced border glow on hover */
-@keyframes borderPulse {
-  0% {
-    box-shadow: 0 0 0 0 rgba(var(--color-rgb), 0.4);
-  }
-  70% {
-    box-shadow: 0 0 0 8px rgba(var(--color-rgb), 0);
-  }
-  100% {
-    box-shadow: 0 0 0 0 rgba(var(--color-rgb), 0);
-  }
-}
-
-/* Animation for feature items when card is hovered */
-.product-card:hover .features-row:first-child .feature-item {
-  animation: slideInFeature 0.5s forwards;
-}
-
-.product-card:hover .features-row:last-child .feature-item {
-  animation: slideInFeatureReverse 0.5s forwards;
-}
-
-/* Reverse direction animation for bottom row */
-@keyframes slideInFeatureReverse {
-  0% {
-    transform: translateX(100%);
-    opacity: 0;
-  }
-  100% {
-    transform: translateX(0);
-    opacity: 1;
-  }
-}
-
-/* Staggered animations with delays */
-.product-card:hover .features-row:first-child .feature-item:nth-child(1) {
-  animation-delay: 0.1s;
-}
-
-.product-card:hover .features-row:first-child .feature-item:nth-child(2) {
-  animation-delay: 0.3s;
-}
-
-.product-card:hover .features-row:last-child .feature-item:nth-child(1) {
-  animation-delay: 0.5s;
-}
-
-.product-card:hover .features-row:last-child .feature-item:nth-child(2) {
-  animation-delay: 0.7s;
-}
-
-/* Add shimmer effect to features on hover */
+/* Remove shimmer effect on hover */
 .features-row:last-child .feature-item:hover {
-  background: linear-gradient(
-    90deg,
-    rgba(255, 255, 255, 0.8) 0%,
-    rgba(255, 255, 255, 0.95) 50%,
-    rgba(255, 255, 255, 0.8) 100%
-  );
-  background-size: 200% 100%;
-  animation: shimmerEffect 1.5s infinite;
-  transform: scale(1.02);
+  background: rgba(255, 255, 255, 0.8);
+  animation: none;
+  transform: none;
+}
+
+/* Remove staggered animations for features on hover */
+.product-card:hover .features-row:first-child .feature-item:nth-child(1),
+.product-card:hover .features-row:first-child .feature-item:nth-child(2),
+.product-card:hover .features-row:first-child .feature-item:nth-child(3),
+.product-card:hover .features-row:first-child .feature-item:nth-child(4) {
+  animation-delay: 0s;
 }
 
 /* Product Image animation */
@@ -1116,37 +1058,22 @@
 }
 
 .product-card:hover .features-row:first-child .feature-item {
-  animation: slideInFeature 0.5s forwards;
+  animation: none;
 }
 
-/* Staggered animations for features */
-.product-card:hover .features-row:first-child .feature-item:nth-child(1) {
-  animation-delay: 0.1s;
+.product-card:hover .features-row:last-child .feature-item {
+  animation: none;
 }
 
-.product-card:hover .features-row:first-child .feature-item:nth-child(2) {
-  animation-delay: 0.3s;
+/* Modify the feature-item hover state to just show a subtle change */
+.feature-item:hover {
+  background: rgba(255, 255, 255, 0.9);
 }
 
-.product-card:hover .features-row:first-child .feature-item:nth-child(3) {
-  animation-delay: 0.5s;
-}
-
-.product-card:hover .features-row:first-child .feature-item:nth-child(4) {
-  animation-delay: 0.7s;
-}
-
-/* Add shimmer effect to features on hover */
-.features-row:last-child .feature-item:hover {
-  background: linear-gradient(
-    90deg,
-    rgba(255, 255, 255, 0.8) 0%,
-    rgba(255, 255, 255, 0.95) 50%,
-    rgba(255, 255, 255, 0.8) 100%
-  );
-  background-size: 200% 100%;
-  animation: shimmerEffect 1.5s infinite;
-  transform: scale(1.02);
+/* Remove any other feature animations on hover */
+.features-row .feature-item:hover {
+  transform: none;
+  animation: none;
 }
 
 /* Product Image animation */

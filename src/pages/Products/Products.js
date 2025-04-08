@@ -123,8 +123,12 @@ const products = [
 const Products = () => {
   const [hoveredProduct, setHoveredProduct] = useState(null);
   const [animateFeatures, setAnimateFeatures] = useState(false);
+  const animationPlayedRef = React.useRef(false);
 
   useEffect(() => {
+    // Set animation played to true when component mounts
+    animationPlayedRef.current = true;
+    
     // Add scroll animation
     const cards = document.querySelectorAll('.product-card');
     const observer = new IntersectionObserver((entries) => {
@@ -266,7 +270,7 @@ const Products = () => {
               className="features-list"
               initial="hidden"
               whileInView="visible"
-              viewport={{ once: false, amount: 0.3 }}
+              viewport={{ once: true, amount: 0.3 }}
             >
               <h4>Key Features</h4>
               <div className="features-container">
@@ -277,14 +281,11 @@ const Products = () => {
                       className="feature-item"
                       initial={{ opacity: 0, x: idx % 2 === 0 ? -100 : 100 }}
                       whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: true }}
                       transition={{ 
                         duration: 0.5, 
                         delay: idx * 0.2,
                         ease: "easeOut" 
-                      }}
-                      whileHover={{ 
-                        scale: 1.05, 
-                        boxShadow: "0 5px 15px rgba(0,0,0,0.1)" 
                       }}
                     >
                       {feature}
